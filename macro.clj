@@ -2,8 +2,8 @@
 ;(safe [s (new FileReader (new File "igelkott2.txt"))] (.read s))
 
 (defmacro safe [references expression]
-	(if (vector? references)
-		`(let [~(get references 0) ~(get references 1)]
+	`(if ~(vector? references)
+		(let [~(get references 0) ~(get references 1)]
 			(try
 				~expression
 				(finally 
