@@ -6,6 +6,7 @@
 		(let [~(get references 0) ~(get references 1)]
 			(try
 				~expression
+				(catch Exception e# e#)
 				(finally 
 					(if (instance? java.io.Closeable ~(get references 0)) 
 						(.close ~(get references 0))
