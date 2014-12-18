@@ -17,7 +17,7 @@
 	)
 )
 
-; Lite tankar om detta!
+; Reflections:
 ; Detta macro skulle inte fungera att definera som en funktion eftersom argumenten som skickas in inte kan utvärderas direkt utan 
 ; komplikationer. Detta är nämligen en av skillnaderna mellan ett macro och en funktion; att argumenten till en funktion utvärderas när
 ; de skickas in till funktionen emedan de för ett macro ej gör det. I detta fall så skulle man ifall argumenten utvärderades direkt 
