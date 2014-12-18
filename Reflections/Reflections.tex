@@ -1,0 +1,60 @@
+% The format (45) is selected to facilitate reading on small devices
+\documentclass[a5paper,10pt,oneside]{article}
+
+\usepackage[swedish]{babel}
+\usepackage[T1]{fontenc}
+
+% Change latin1 here to the encoding you use
+\usepackage[utf8]{inputenc}
+
+
+% The packages listed below are optional and can be removed if you don't use them
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{ifthen}
+\usepackage{listings}	
+
+
+
+\usepackage{ifpdf}
+\ifpdf
+	\usepackage[hidelinks]{hyperref}
+\else
+	\usepackage{url}
+\fi
+
+
+
+\title{Assignment 2: Reflections}
+
+
+\author{Oscar Ferm \and Mattias Forsman \and Frans Nordén}
+
+
+
+
+\begin{document}
+
+\maketitle
+\pagebreak
+
+\section{Reflektioner gällande macron}
+
+\subsection{Safe macro}
+Detta macro skulle inte fungera att definera som en funktion eftersom argumenten som skickas in inte kan utvärderas direkt utan 
+komplikationer. Detta är nämligen en av skillnaderna mellan ett macro och en funktion; att argumenten till en funktion utvärderas när
+de skickas in till funktionen emedan de för ett macro ej gör det. I detta fall så skulle man ifall argumenten utvärderades direkt 
+få problem med att exceptions uppstår som aldrig fångas. Om man skickar in en fil och får FileNotFoundException från File men också 
+har öppnat en FileReader så skulle man med en funktion ej kunna stänga FileReadern, vilket man med detta macro alltid gör.
+
+\subsection{SQL-like macro}
+Detta macro anser vi att man bör kunna implementera som en funktion eftersom ingenting tar skada av att argumenten utvärderas direkt när funktionen
+anropas. Det som skulle vara fördelen med att definera ett macro för denna typ av uppgift är att man då kan definera en typ av "sub-språk" inuti det programeringsspråk man använder vilket kan öka readability och writeability. 
+
+% Vad som kan påverka??
+% 
+
+
+
+\end{document}
