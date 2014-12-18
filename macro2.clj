@@ -1,8 +1,8 @@
 
 
 ;(defmacro select [columns from table where op orderby col]
-(defmacro select [cols table op col]
-	`(sqlSelect ~cols (sort-by ~col (sqlFilter ~op ~table)))
+(defmacro select [columns from table where op orderby col]
+	`(sqlSelect ~columns (sort-by ~col (sqlFilter ~op ~table)))
 )
 
 (defn sqlFilter [op table]
@@ -18,6 +18,6 @@
 	)
 )
 
-(defn sqlSelect [cols table]
-	(doseq [current table] (concat selected (select-keys current [:name])))
+(defn sqlSelect [columns table]
+	(for [current table] (select-keys current (into [] (reverse columns))))
 )
